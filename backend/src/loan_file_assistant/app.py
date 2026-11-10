@@ -1,5 +1,7 @@
 """The HTTP API."""
 
+import logging
+import threading
 import uuid
 from collections.abc import Callable, Iterator, Sequence
 from contextlib import asynccontextmanager
@@ -94,13 +96,21 @@ def create_app(
     cors_origins: Sequence[str] = (),
     daily_model_calls: int = 400,
     seed: bool = True,
+    seed_in_background: bool = False,
 ) -> FastAPI:
+    def seed_samples() -> None:
+        with Session(engine) as db, db.begin():
+            service.seed_samples(db, embedder, llm, clock())
+
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         create_schema(engine)
-        if seed:
-            with Session(engine) as db, db.begin():
-                service.seed_samples(db, embedder, llm, clock())
+        if seed and seed_in_background:
+            # A fresh database's first start reads every sample with the model, which
+            # takes minutes; serve requests meanwhile (samples appear when it's done).
+            threading.Thread(target=_log_errors(seed_samples), name="seed-samples", daemon=True).start()
+        elif seed:
+            seed_samples()
         yield
 
     app = FastAPI(title="Loan File Assistant API", lifespan=lifespan)
@@ -226,6 +236,16 @@ def create_app(
         )
 
     return app
+
+
+def _log_errors(fn):
+    def run() -> None:
+        try:
+            fn()
+        except Exception:
+            logging.getLogger(__name__).exception("Seeding the sample loan files failed")
+
+    return run
 
 
 def _call_model(call):

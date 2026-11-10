@@ -59,3 +59,33 @@ def test_seeding_works_when_the_cache_cannot_be_written(engine, embedder, llm, t
         added = service.seed_samples(db, embedder, llm, datetime.now(UTC), cache_path=unwritable)
 
     assert added == 20
+
+
+class _RecordingClient:
+    """Stands in for anthropic.Anthropic, recording the arguments of each call."""
+
+    def __init__(self):
+        self.calls = []
+        outer = self
+
+        class _Messages:
+            def parse(self, **kwargs):
+                outer.calls.append(kwargs)
+                raise RuntimeError("stop")
+
+        class _Beta:
+            messages = _Messages()
+
+        self.beta = _Beta()
+
+
+def test_the_refusal_fallback_is_sent_only_to_models_that_offer_it():
+    import pytest
+
+    from loan_file_assistant.llm import ClaudeLLM
+
+    for model, expect_fallback in [("claude-opus-5-5", True), ("claude-haiku-5-5", False)]:
+        client = _RecordingClient()
+        with pytest.raises(RuntimeError):
+            ClaudeLLM(client=client, model=model).extract(b"%PDF", "x.pdf")
+        assert ("fallbacks" in client.calls[0]) is expect_fallback, model

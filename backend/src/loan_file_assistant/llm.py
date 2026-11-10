@@ -10,9 +10,10 @@ import anthropic
 from loan_file_assistant.schema import LoanDocumentFields
 
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-opus-5-5")
-# If a request is declined by a safety classifier, the API retries it on a fallback
-# model inside the same call.
+# On these models, a request declined by a safety classifier is retried on a fallback
+# model inside the same call. Other models (Haiku 5.5 among them) don't offer it.
 FALLBACK_BETA = "server-side-fallback-2026-07-01"
+MODELS_WITH_FALLBACK = {"claude-fable-5-2", "claude-fable-5-1", "claude-opus-5-5", "claude-opus-5", "claude-sonnet-5-5"}
 
 EXTRACT_SYSTEM = """You extract fields from documents in a real estate bridge loan file \
 (term sheets, appraisals, rehab budgets, construction draw requests).
@@ -69,13 +70,14 @@ class ClaudeLLM:
     def __init__(self, client: anthropic.Anthropic | None = None, model: str = MODEL) -> None:
         self._client = client or anthropic.Anthropic()
         self._model = model
+        self._fallback: dict = (
+            {"betas": [FALLBACK_BETA], "fallbacks": "default"} if model in MODELS_WITH_FALLBACK else {}
+        )
 
     def extract(self, pdf: bytes, filename: str) -> LoanDocumentFields:
         response = self._client.beta.messages.parse(
             model=self._model,
             max_tokens=4000,
-            betas=[FALLBACK_BETA],
-            fallbacks="default",
             system=EXTRACT_SYSTEM,
             messages=[
                 {
@@ -95,6 +97,7 @@ class ClaudeLLM:
                 }
             ],
             output_format=LoanDocumentFields,
+            **self._fallback,
         )
         if response.stop_reason == "refusal" or response.parsed_output is None:
             raise Declined(f"Extraction stopped: {response.stop_reason}")
@@ -115,10 +118,9 @@ class ClaudeLLM:
         response = self._client.beta.messages.create(
             model=self._model,
             max_tokens=4000,
-            betas=[FALLBACK_BETA],
-            fallbacks="default",
             system=ANSWER_SYSTEM,
             messages=[{"role": "user", "content": content}],
+            **self._fallback,
         )
         if response.stop_reason == "refusal":
             raise Declined("Answer declined")

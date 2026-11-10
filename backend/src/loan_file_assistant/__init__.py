@@ -3,7 +3,7 @@
 Environment:
 - DATABASE_URL: Postgres with the pgvector extension available.
 - ANTHROPIC_API_KEY: for the Claude calls.
-- CLAUDE_MODEL: defaults to claude-opus-5-5.
+- CLAUDE_MODEL: defaults to claude-opus-5-5 (the demo runs claude-haiku-5-5; see render.yaml).
 - CORS_ORIGINS: comma-separated origins the frontend is served from.
 - DAILY_MODEL_CALLS: cap on Claude calls per UTC day (default 400).
 - PORT: defaults to 8000.
@@ -28,6 +28,7 @@ def build_app():
         llm=ClaudeLLM(),
         cors_origins=_list("CORS_ORIGINS"),
         daily_model_calls=int(os.environ.get("DAILY_MODEL_CALLS", "400")),
+        seed_in_background=True,
     )
 
 

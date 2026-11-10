@@ -166,3 +166,20 @@ def test_cors_allows_only_the_frontend(engine, embedder, llm, clock):
 
     assert ok.headers["access-control-allow-origin"] == "https://lfa.example.com"
     assert "access-control-allow-origin" not in other.headers
+
+
+def test_background_seeding_serves_requests_while_the_samples_load(engine, embedder, llm, clock):
+    import time
+
+    from fastapi.testclient import TestClient
+
+    from loan_file_assistant.app import create_app
+
+    app = create_app(engine=engine, embedder=embedder, llm=llm, clock=clock, seed_in_background=True)
+    with TestClient(app) as c:
+        assert c.get("/health").status_code == 200
+        deadline = time.monotonic() + 60
+        while len(c.get("/loan-files/samples").json()) < 4 and time.monotonic() < deadline:
+            time.sleep(0.5)
+
+        assert sum(s["document_count"] for s in c.get("/loan-files/samples").json()) == 20

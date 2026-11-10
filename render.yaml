@@ -26,6 +26,10 @@ services:
       # The Vercel address of the frontend, e.g. https://loan-file-assistant.vercel.app
       - key: CORS_ORIGINS
         sync: false
+      # Haiku 5.5 keeps the demo's cost to fractions of a cent per call. The sample
+      # documents were read once by Opus 5.5; see the README's eval for how each compares.
+      - key: CLAUDE_MODEL
+        value: claude-haiku-5-5
       - key: DAILY_MODEL_CALLS
         value: "400"
       # Render's proxy, so rate limits see each visitor's address rather than the proxy's.
