@@ -2,7 +2,7 @@
 
 Reads the documents in a real estate bridge loan file (term sheets, appraisals, rehab budgets, construction draw requests), pulls out the terms, flags underwriting issues, and answers questions with citations to the page the answer came from.
 
-**Live demo:** _coming soon_ · Every document in this repo is fictional sample data.
+**Live demo: [loan-file-assistant.vercel.app](https://loan-file-assistant.vercel.app)** · Every document in it is fictional sample data. The API sleeps when idle, so the first load can take about a minute.
 
 ## What it does
 
