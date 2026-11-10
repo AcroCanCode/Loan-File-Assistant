@@ -1,0 +1,436 @@
+{
+  "documents": [
+    {
+      "doc": "L1/appraisal.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 9.7
+    },
+    {
+      "doc": "L1/draw_request_1.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 5.4
+    },
+    {
+      "doc": "L1/draw_request_2.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 6.2
+    },
+    {
+      "doc": "L1/rehab_budget.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 5.4
+    },
+    {
+      "doc": "L1/term_sheet.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 11,
+      "misses": {
+        "rehab_budget_total": {
+          "expected": 88500,
+          "actual": null
+        }
+      },
+      "seconds": 8.0
+    },
+    {
+      "doc": "L2/appraisal.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 8.7
+    },
+    {
+      "doc": "L2/draw_request_1.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 4.2
+    },
+    {
+      "doc": "L2/draw_request_2.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 4.9
+    },
+    {
+      "doc": "L2/draw_request_3.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 6.8
+    },
+    {
+      "doc": "L2/rehab_budget.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 4.6
+    },
+    {
+      "doc": "L2/term_sheet.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 11,
+      "misses": {
+        "rehab_budget_total": {
+          "expected": 62000,
+          "actual": null
+        }
+      },
+      "seconds": 6.5
+    },
+    {
+      "doc": "L3/appraisal.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 9.9
+    },
+    {
+      "doc": "L3/draw_request_1.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 6.4
+    },
+    {
+      "doc": "L3/rehab_budget.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 5.4
+    },
+    {
+      "doc": "L3/term_sheet.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 11,
+      "misses": {
+        "rehab_budget_total": {
+          "expected": 120000,
+          "actual": null
+        }
+      },
+      "seconds": 7.7
+    },
+    {
+      "doc": "L4/appraisal.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 8.9
+    },
+    {
+      "doc": "L4/draw_request_1.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 6.1
+    },
+    {
+      "doc": "L4/draw_request_2.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 4.9
+    },
+    {
+      "doc": "L4/rehab_budget.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 12,
+      "misses": {},
+      "seconds": 5.5
+    },
+    {
+      "doc": "L4/term_sheet.pdf",
+      "doc_type_ok": true,
+      "fields_correct": 11,
+      "misses": {
+        "rehab_budget_total": {
+          "expected": 41000,
+          "actual": null
+        }
+      },
+      "seconds": 6.5
+    }
+  ],
+  "questions": [
+    {
+      "loan": "L1",
+      "question": "What is the after-repair value of the property?",
+      "source": "appraisal.pdf",
+      "expect": [
+        "465,000"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The appraiser puts the after-repair value at $465,000, assuming the $88,500 rehab budget is completed in a good and workmanlike manner. The prospective value assumes completion of the scope of work in the borrower's rehab budget of $88,500 in a good and workmanlike manner. The as-is value on the same page is $320,000."
+    },
+    {
+      "loan": "L1",
+      "question": "What is the note rate on the loan?",
+      "source": "term_sheet.pdf",
+      "expect": [
+        "11.5"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The proposed note rate is 11.50%, interest-only, with payments due monthly. Note rate 11.50% interest-only, paid monthly appears in the term sheet, which is non-binding and subject to underwriting, title, and appraisal."
+    },
+    {
+      "loan": "L1",
+      "question": "Who is the personal guarantor?",
+      "source": "term_sheet.pdf",
+      "expect": [
+        "Dana Whitlock"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "Dana Whitlock is named as the guarantor on this loan. Personal guarantor Dana Whitlock appears in the term sheet, which is non-binding and subject to underwriting, title, and appraisal."
+    },
+    {
+      "loan": "L1",
+      "question": "How much is budgeted for the roof?",
+      "source": "rehab_budget.pdf",
+      "expect": [
+        "14,000"
+      ],
+      "retrieval_hit": true,
+      "rank": 2,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The roof is budgeted at **$14,000**. Line 2 of the rehab budget carries that amount, which is part of the $88,500 total. Scope of Work and Rehab Budget... 2 Roof replacement $14,000\n\nDraw Request No. 1 also lists $14,000 for roof replacement as completed work, so the full roof budget appears to have been requested in the first draw. Work completed for this draw: Roof replacement $14,000"
+    },
+    {
+      "loan": "L1",
+      "question": "How much was requested in the second draw?",
+      "source": "draw_request_2.pdf",
+      "expect": [
+        "35,000"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The borrower requested **$35,000** in the second draw. The kitchen line (cabinets, counters, appliances) was $18,000 and the bathrooms (2) line was $17,000, so $18,000 + $17,000 = $35,000, which matches the request."
+    },
+    {
+      "loan": "L2",
+      "question": "How much was requested in draw 3?",
+      "source": "draw_request_3.pdf",
+      "expect": [
+        "21,500"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "Draw No. 3 requested $21,500 Amount requested this draw $21,500. The line items support this figure: $2,000 + $8,000 + $5,000 + $6,500 = $21,500."
+    },
+    {
+      "loan": "L2",
+      "question": "Does any draw include work that isn't in the original rehab budget?",
+      "source": "draw_request_3.pdf",
+      "expect": [
+        "foundation"
+      ],
+      "retrieval_hit": true,
+      "rank": 3,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "Yes. Draw 3 includes a **$6,500 \"Change order: foundation repair\"** that does not appear in the rehab budget. The budget lists six line items: HVAC, electrical, kitchen, primary bathroom, exterior paint, and landscaping, totaling $62,000 (Scope of Work and Rehab Budget ... Total rehab budget $62,000). The draw 3 request lists that foundation work as a change order, which the budget's rules say require lender approval before work begins. The passages don't show any lender approval, so I can't confirm whether it was authorized.\n\nThe other draws stay within budget lines. Draw 1 covers HVAC, electrical, and kitchen work, and draw 2 covers kitchen and primary bathroom work. The kitchen totals $7,500 + $12,000 = $19,500, which matches the budget line, and the bathroom totals $2,000 + $10,000 = $12,000, which also matches."
+    },
+    {
+      "loan": "L2",
+      "question": "What is the as-is value from the appraisal?",
+      "source": "appraisal.pdf",
+      "expect": [
+        "255,000"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The appraisal puts the as-is market value at $255,000. The appraiser measured it as of the inspection's effective date, and the sales comparison approach carried the most weight in the reconciliation. Market value, as is $255,000"
+    },
+    {
+      "loan": "L2",
+      "question": "How many origination points does the term sheet charge?",
+      "source": "term_sheet.pdf",
+      "expect": [
+        "1.5"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The term sheet sets the origination fee at one and a half points. Origination fee 1.5 points\n\nIf a point is 1% of the loan amount, that comes to about $3,825 (1.5% \u00d7 $255,000). The term sheet doesn't state a dollar figure, and it describes itself as Non-binding summary of proposed terms."
+    },
+    {
+      "loan": "L2",
+      "question": "How much had been disbursed before the third draw?",
+      "source": "draw_request_3.pdf",
+      "expect": [
+        "47,000"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "Before the third draw, **$47,000** had already been released. The request for Draw 3 reports that total in its own summary, and it matches the two earlier requests: Draw 1 asked for $25,000 and Draw 2 asked for $22,000. So $25,000 + $22,000 = $47,000."
+    },
+    {
+      "loan": "L3",
+      "question": "What is the largest line item in the rehab budget?",
+      "source": "rehab_budget.pdf",
+      "expect": [
+        "second-story"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The framing and second-story addition is the largest line item, at $48,000 of the $120,000 total Framing and second-story addition $48,000. The next largest is foundation repair at $22,000. The six line items sum to the stated total: $22,000 + $48,000 + $16,000 + $14,000 + $12,500 + $7,500 = $120,000."
+    },
+    {
+      "loan": "L3",
+      "question": "How long is the loan term?",
+      "source": "term_sheet.pdf",
+      "expect": [
+        "12 months"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": false,
+      "cited": true,
+      "answer": "The loan term is proposed at twelve months. The term sheet is non-binding and subject to underwriting, title, and appraisal, so the final term could change. Non-binding summary of proposed terms. Subject to underwriting, title and appraisal."
+    },
+    {
+      "loan": "L3",
+      "question": "What was the highest comparable sale price in the appraisal?",
+      "source": "appraisal.pdf",
+      "expect": [
+        "625,000"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "Of the three comparables, 1209 Windmill Run had the highest sale price at $625,000. The others were 344 Copper Hills Dr at $615,500 and 71 Cedar Bend Ln at $598,000 Comparable sales: Recent renovated sales within one mile, adjusted for size and condition."
+    },
+    {
+      "loan": "L3",
+      "question": "Who prepared the appraisal?",
+      "source": "appraisal.pdf",
+      "expect": [
+        "Hollis Grant"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The appraisal was done by Hollis Grant, who holds certification as a residential appraiser. The report was written for Sample Lending Co., the lender Prepared for Sample Lending Co. by Hollis Grant, Certified Residential Appraiser."
+    },
+    {
+      "loan": "L3",
+      "question": "How much is budgeted for foundation repair?",
+      "source": "rehab_budget.pdf",
+      "expect": [
+        "22,000"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The rehab budget allocates $22,000 to foundation repair, the first line item in the scope of work and rehab budget for 55 Cedar Bend Ln. The borrower's first draw request also lists the full $22,000 for that line as completed work."
+    },
+    {
+      "loan": "L4",
+      "question": "When does the prepayment penalty stop applying?",
+      "source": "term_sheet.pdf",
+      "expect": [
+        "month 3"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "Early payoff charges fall away once month 3 is reached. The term sheet, which is a non-binding summary of proposed terms, sets the cutoff at month 3, so the loan agreement itself should be checked before relying on this."
+    },
+    {
+      "loan": "L4",
+      "question": "What do the windows cost?",
+      "source": "rehab_budget.pdf",
+      "expect": [
+        "9,600"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The windows line item is budgeted at $9,600 for 12 windows. The rehab budget lists Windows (12) at $9,600 as line item 1 of a $41,000 total. The first draw request also reports that line as finished, with the same amount, so it is part of the first $18,000 draw."
+    },
+    {
+      "loan": "L4",
+      "question": "How much did the second draw request?",
+      "source": "draw_request_2.pdf",
+      "expect": [
+        "15,000"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The second draw request, dated September 14, 2026, seeks $15,000. The work lines are a $11,000 kitchen refresh and a $4,000 bathroom refresh, which sum to $15,000 (Amount requested this draw $15,000)."
+    },
+    {
+      "loan": "L4",
+      "question": "Who is the borrowing entity?",
+      "source": "term_sheet.pdf",
+      "expect": [
+        "Mesquite Street Investments"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The loan is to be made to **Mesquite Street Investments LLC**, as the term sheet lists it under the borrowing entity field. The appraisal summary and the draw requests also name Mesquite Street Investments LLC as the borrower. The term sheet separately names Tomas Lindqvist as the personal guarantor, but he is not the borrowing entity."
+    },
+    {
+      "loan": "L4",
+      "question": "What is the total rehab budget?",
+      "source": "rehab_budget.pdf",
+      "expect": [
+        "41,000"
+      ],
+      "retrieval_hit": true,
+      "rank": 1,
+      "answer_ok": true,
+      "cited": true,
+      "answer": "The total rehab budget is **$41,000**. Adding the five line items in the budget confirms it: $9,600 + $8,400 + $11,000 + $6,500 + $5,500 = $41,000. The scope of work lists windows, flooring, kitchen and bathroom refreshes, and interior and exterior paint. The same $41,000 figure appears in Draw request 2, the term sheet's rehab holdback, and the appraisal, which assumes completion of the scope of work in the borrower's rehab budget of $41,000."
+    }
+  ],
+  "summary": {
+    "documents": 20,
+    "field_accuracy_pct": 98.3,
+    "fields_scored": 240,
+    "doc_type_accuracy_pct": 100.0,
+    "questions": 20,
+    "retrieval_hit_rate_pct": 100.0,
+    "answer_accuracy_pct": 95.0,
+    "answers_with_citations_pct": 100.0
+  }
+}

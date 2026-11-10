@@ -6,22 +6,29 @@ Reads the documents in a real estate bridge loan file (term sheets, appraisals, 
 
 ## What it does
 
-- **Extraction.** Claude reads each PDF and returns typed fields (borrower, property, loan amount, rate, term, as-is value, after-repair value, rehab budget, draw amounts), validated against a Pydantic schema with structured outputs.
+- **Extraction.** Claude (Haiku 5.5 in the demo) reads each PDF and returns typed fields (borrower, property, loan amount, rate, term, as-is value, after-repair value, rehab budget, draw amounts), validated against a Pydantic schema with structured outputs.
 - **Underwriting flags.** Plain code checks the extracted numbers across the whole loan file: loan-to-ARV over 70%, loan-to-cost over 90%, draws exceeding the rehab budget, mismatched property addresses, missing documents. Being code rather than a model makes them repeatable and explainable.
 - **Q&A with citations (RAG).** Documents are split into chunks, embedded with a local open model (`bge-small-en-v1.5`), and stored in Postgres with pgvector. A question retrieves the six closest passages from that loan file only, and Claude answers from them with citations.
 - **Private uploads.** Visitors can upload their own PDFs to a private loan file that is deleted after 24 hours.
 
 ## How well it works
 
-`backend/eval/run_eval.py` runs against the deployed API: it uploads all 20 sample PDFs (so every one is extracted live) and asks 20 labeled questions.
+`backend/eval/run_eval.py` runs against the deployed API: it uploads all 20 sample PDFs, so each one is read live, and asks 20 labeled questions. Results from November 10, 2026 (full output in `backend/eval/results.json`):
 
-| Measure | Result |
-|---|---|
-| Retrieval: answer passage in the top 6 | 20 / 20 |
-| Retrieval: answer passage ranked first | 18 / 20 |
-| Field extraction accuracy (240 fields, nulls included) | _pending first deployed run_ |
-| Document type accuracy | _pending first deployed run_ |
-| Answers containing the expected value | _pending first deployed run_ |
+| Measure | Claude Haiku 5.5 | Claude Opus 5.5 |
+|---|---|---|
+| Field extraction accuracy (240 fields, nulls included) | **98.3%** | 98.3% |
+| Document type accuracy | **100%** | 100% |
+| Retrieval: answer passage among those retrieved | **100%** (20/20) | |
+| Answers containing the expected value | **95%** (19/20) | |
+| Answers with citations | **100%** | |
+| Median time to read a document | 6.4 s | |
+
+The demo runs on Haiku 5.5: it matched Opus 5.5 on extraction at about 1/40 of the cost. The Opus column scores the sample documents Opus read when the database was first set up.
+
+What the misses were:
+- All four field misses are the same judgment call, made by both models: each term sheet lists a "rehab holdback", which the labels count as the rehab budget and the models leave empty. That's a labeling ambiguity rather than a misread number.
+- The one answer marked wrong said "twelve months" where the grader looked for "12 months". The grader matches text exactly, so it's reported as a miss.
 
 The samples include deliberate traps: comparable sale prices next to the subject's value, "previously disbursed" totals next to the current draw amount, and an unapproved change order inside a draw.
 
