@@ -1,0 +1,190 @@
+{
+  "L1/term_sheet.pdf": {
+    "loan": "L1",
+    "doc_type": "term_sheet",
+    "borrower_name": "Ridgeline Home Partners LLC",
+    "property_address": "1407 Pecan Hollow Dr, Austin, TX 78745",
+    "purchase_price": 312000,
+    "loan_amount": 340000,
+    "interest_rate_pct": 11.5,
+    "term_months": 12,
+    "origination_points": 2.0,
+    "rehab_budget_total": 88500
+  },
+  "L1/appraisal.pdf": {
+    "loan": "L1",
+    "doc_type": "appraisal",
+    "borrower_name": "Ridgeline Home Partners LLC",
+    "property_address": "1407 Pecan Hollow Dr, Austin, TX 78745",
+    "purchase_price": 312000,
+    "as_is_value": 320000,
+    "after_repair_value": 465000,
+    "rehab_budget_total": 88500
+  },
+  "L1/rehab_budget.pdf": {
+    "loan": "L1",
+    "doc_type": "rehab_budget",
+    "borrower_name": "Ridgeline Home Partners LLC",
+    "property_address": "1407 Pecan Hollow Dr, Austin, TX 78745",
+    "rehab_budget_total": 88500
+  },
+  "L1/draw_request_1.pdf": {
+    "loan": "L1",
+    "doc_type": "draw_request",
+    "borrower_name": "Ridgeline Home Partners LLC",
+    "property_address": "1407 Pecan Hollow Dr, Austin, TX 78745",
+    "rehab_budget_total": 88500,
+    "draw_number": 1,
+    "draw_amount_requested": 30000
+  },
+  "L1/draw_request_2.pdf": {
+    "loan": "L1",
+    "doc_type": "draw_request",
+    "borrower_name": "Ridgeline Home Partners LLC",
+    "property_address": "1407 Pecan Hollow Dr, Austin, TX 78745",
+    "rehab_budget_total": 88500,
+    "draw_number": 2,
+    "draw_amount_requested": 35000
+  },
+  "L2/term_sheet.pdf": {
+    "loan": "L2",
+    "doc_type": "term_sheet",
+    "borrower_name": "Bluebonnet Renovations LLC",
+    "property_address": "902 Larkspur Ct, Round Rock, TX 78664",
+    "purchase_price": 248000,
+    "loan_amount": 255000,
+    "interest_rate_pct": 10.99,
+    "term_months": 9,
+    "origination_points": 1.5,
+    "rehab_budget_total": 62000
+  },
+  "L2/appraisal.pdf": {
+    "loan": "L2",
+    "doc_type": "appraisal",
+    "borrower_name": "Bluebonnet Renovations LLC",
+    "property_address": "902 Larkspur Ct, Round Rock, TX 78664",
+    "purchase_price": 248000,
+    "as_is_value": 255000,
+    "after_repair_value": 389000,
+    "rehab_budget_total": 62000
+  },
+  "L2/rehab_budget.pdf": {
+    "loan": "L2",
+    "doc_type": "rehab_budget",
+    "borrower_name": "Bluebonnet Renovations LLC",
+    "property_address": "902 Larkspur Ct, Round Rock, TX 78664",
+    "rehab_budget_total": 62000
+  },
+  "L2/draw_request_1.pdf": {
+    "loan": "L2",
+    "doc_type": "draw_request",
+    "borrower_name": "Bluebonnet Renovations LLC",
+    "property_address": "902 Larkspur Ct, Round Rock, TX 78664",
+    "rehab_budget_total": 62000,
+    "draw_number": 1,
+    "draw_amount_requested": 25000
+  },
+  "L2/draw_request_2.pdf": {
+    "loan": "L2",
+    "doc_type": "draw_request",
+    "borrower_name": "Bluebonnet Renovations LLC",
+    "property_address": "902 Larkspur Ct, Round Rock, TX 78664",
+    "rehab_budget_total": 62000,
+    "draw_number": 2,
+    "draw_amount_requested": 22000
+  },
+  "L2/draw_request_3.pdf": {
+    "loan": "L2",
+    "doc_type": "draw_request",
+    "borrower_name": "Bluebonnet Renovations LLC",
+    "property_address": "902 Larkspur Ct, Round Rock, TX 78664",
+    "rehab_budget_total": 62000,
+    "draw_number": 3,
+    "draw_amount_requested": 21500
+  },
+  "L3/term_sheet.pdf": {
+    "loan": "L3",
+    "doc_type": "term_sheet",
+    "borrower_name": "Kestrel Capital Holdings LLC",
+    "property_address": "55 Cedar Bend Ln, Pflugerville, TX 78660",
+    "purchase_price": 410000,
+    "loan_amount": 430000,
+    "interest_rate_pct": 12.25,
+    "term_months": 12,
+    "origination_points": 2.5,
+    "rehab_budget_total": 120000
+  },
+  "L3/appraisal.pdf": {
+    "loan": "L3",
+    "doc_type": "appraisal",
+    "borrower_name": "Kestrel Capital Holdings LLC",
+    "property_address": "55 Cedar Bend Ln, Pflugerville, TX 78660",
+    "purchase_price": 410000,
+    "as_is_value": 415000,
+    "after_repair_value": 610000,
+    "rehab_budget_total": 120000
+  },
+  "L3/rehab_budget.pdf": {
+    "loan": "L3",
+    "doc_type": "rehab_budget",
+    "borrower_name": "Kestrel Capital Holdings LLC",
+    "property_address": "55 Cedar Bend Ln, Pflugerville, TX 78660",
+    "rehab_budget_total": 120000
+  },
+  "L3/draw_request_1.pdf": {
+    "loan": "L3",
+    "doc_type": "draw_request",
+    "borrower_name": "Kestrel Capital Holdings LLC",
+    "property_address": "55 Cedar Bend Ln, Pflugerville, TX 78660",
+    "rehab_budget_total": 120000,
+    "draw_number": 1,
+    "draw_amount_requested": 40000
+  },
+  "L4/term_sheet.pdf": {
+    "loan": "L4",
+    "doc_type": "term_sheet",
+    "borrower_name": "Mesquite Street Investments LLC",
+    "property_address": "3318 Willow Run, Georgetown, TX 78626",
+    "purchase_price": 189000,
+    "loan_amount": 190000,
+    "interest_rate_pct": 11.0,
+    "term_months": 6,
+    "origination_points": 2.0,
+    "rehab_budget_total": 41000
+  },
+  "L4/appraisal.pdf": {
+    "loan": "L4",
+    "doc_type": "appraisal",
+    "borrower_name": "Mesquite Street Investments LLC",
+    "property_address": "3318 Willow Run, Georgetown, TX 78626",
+    "purchase_price": 189000,
+    "as_is_value": 195000,
+    "after_repair_value": 289000,
+    "rehab_budget_total": 41000
+  },
+  "L4/rehab_budget.pdf": {
+    "loan": "L4",
+    "doc_type": "rehab_budget",
+    "borrower_name": "Mesquite Street Investments LLC",
+    "property_address": "3318 Willow Run, Georgetown, TX 78626",
+    "rehab_budget_total": 41000
+  },
+  "L4/draw_request_1.pdf": {
+    "loan": "L4",
+    "doc_type": "draw_request",
+    "borrower_name": "Mesquite Street Investments LLC",
+    "property_address": "3318 Willow Run, Georgetown, TX 78626",
+    "rehab_budget_total": 41000,
+    "draw_number": 1,
+    "draw_amount_requested": 18000
+  },
+  "L4/draw_request_2.pdf": {
+    "loan": "L4",
+    "doc_type": "draw_request",
+    "borrower_name": "Mesquite Street Investments LLC",
+    "property_address": "3318 Willow Run, Georgetown, TX 78626",
+    "rehab_budget_total": 41000,
+    "draw_number": 2,
+    "draw_amount_requested": 15000
+  }
+}

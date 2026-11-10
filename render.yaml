@@ -1,0 +1,33 @@
+# The API on Render. The frontend is on Vercel and the database on Supabase; see the README.
+services:
+  - type: web
+    name: loan-file-assistant-api
+    runtime: docker
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    # Free instances sleep after 15 idle minutes and take about a minute to wake.
+    # Switch to "starter" ($7/month) to keep the demo instant.
+    plan: free
+    region: ohio
+    # Rate limits and the daily model-call cap are counted per process.
+    numInstances: 1
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    buildFilter:
+      paths:
+        - backend/**
+    envVars:
+      # Supabase's Session pooler connection string (Render has no IPv6 for the direct one).
+      - key: DATABASE_URL
+        sync: false
+      # Set a monthly spend limit on this key in the Anthropic Console.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # The Vercel address of the frontend, e.g. https://loan-file-assistant.vercel.app
+      - key: CORS_ORIGINS
+        sync: false
+      - key: DAILY_MODEL_CALLS
+        value: "400"
+      # Render's proxy, so rate limits see each visitor's address rather than the proxy's.
+      - key: FORWARDED_ALLOW_IPS
+        value: 10.0.0.0/8

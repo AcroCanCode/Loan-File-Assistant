@@ -1,0 +1,22 @@
+[
+  {"loan": "L1", "question": "What is the after-repair value of the property?", "source": "appraisal.pdf", "expect": ["465,000"]},
+  {"loan": "L1", "question": "What is the note rate on the loan?", "source": "term_sheet.pdf", "expect": ["11.5"]},
+  {"loan": "L1", "question": "Who is the personal guarantor?", "source": "term_sheet.pdf", "expect": ["Dana Whitlock"]},
+  {"loan": "L1", "question": "How much is budgeted for the roof?", "source": "rehab_budget.pdf", "expect": ["14,000"]},
+  {"loan": "L1", "question": "How much was requested in the second draw?", "source": "draw_request_2.pdf", "expect": ["35,000"]},
+  {"loan": "L2", "question": "How much was requested in draw 3?", "source": "draw_request_3.pdf", "expect": ["21,500"]},
+  {"loan": "L2", "question": "Does any draw include work that isn't in the original rehab budget?", "source": "draw_request_3.pdf", "expect": ["foundation"]},
+  {"loan": "L2", "question": "What is the as-is value from the appraisal?", "source": "appraisal.pdf", "expect": ["255,000"]},
+  {"loan": "L2", "question": "How many origination points does the term sheet charge?", "source": "term_sheet.pdf", "expect": ["1.5"]},
+  {"loan": "L2", "question": "How much had been disbursed before the third draw?", "source": "draw_request_3.pdf", "expect": ["47,000"]},
+  {"loan": "L3", "question": "What is the largest line item in the rehab budget?", "source": "rehab_budget.pdf", "expect": ["second-story"]},
+  {"loan": "L3", "question": "How long is the loan term?", "source": "term_sheet.pdf", "expect": ["12 months"]},
+  {"loan": "L3", "question": "What was the highest comparable sale price in the appraisal?", "source": "appraisal.pdf", "expect": ["625,000"]},
+  {"loan": "L3", "question": "Who prepared the appraisal?", "source": "appraisal.pdf", "expect": ["Hollis Grant"]},
+  {"loan": "L3", "question": "How much is budgeted for foundation repair?", "source": "rehab_budget.pdf", "expect": ["22,000"]},
+  {"loan": "L4", "question": "When does the prepayment penalty stop applying?", "source": "term_sheet.pdf", "expect": ["month 3"]},
+  {"loan": "L4", "question": "What do the windows cost?", "source": "rehab_budget.pdf", "expect": ["9,600"]},
+  {"loan": "L4", "question": "How much did the second draw request?", "source": "draw_request_2.pdf", "expect": ["15,000"]},
+  {"loan": "L4", "question": "Who is the borrowing entity?", "source": "term_sheet.pdf", "expect": ["Mesquite Street Investments"]},
+  {"loan": "L4", "question": "What is the total rehab budget?", "source": "rehab_budget.pdf", "expect": ["41,000"]}
+]
