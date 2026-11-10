@@ -168,12 +168,20 @@ def test_cors_allows_only_the_frontend(engine, embedder, llm, clock):
     assert "access-control-allow-origin" not in other.headers
 
 
-def test_background_seeding_serves_requests_while_the_samples_load(engine, embedder, llm, clock):
+def test_background_seeding_serves_requests_while_the_samples_load(engine, embedder, llm, clock, tmp_path, monkeypatch):
     import time
 
     from fastapi.testclient import TestClient
 
+    from loan_file_assistant import service
     from loan_file_assistant.app import create_app
+
+    original = service.seed_samples
+    monkeypatch.setattr(
+        service,
+        "seed_samples",
+        lambda db, emb, model, now: original(db, emb, model, now, cache_path=tmp_path / "extracted.json"),
+    )
 
     app = create_app(engine=engine, embedder=embedder, llm=llm, clock=clock, seed_in_background=True)
     with TestClient(app) as c:

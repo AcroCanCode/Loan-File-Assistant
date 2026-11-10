@@ -9,3 +9,6 @@ node_modules/
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+
+# Written by the server on first start; fake-model test runs must never produce it.
+backend/samples/extracted.json
